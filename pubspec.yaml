@@ -1,0 +1,26 @@
+name: page_curl_effect
+description: "This is provide 2D page curl animation"
+version: 1.0.0
+homepage: https://github.com/hgtdung
+repository: https://github.com/hgtdung/page_curl_effect
+View/report issues: https://github.com/hgtdung/page_curl_effect/issues
+
+environment:
+  sdk: ^3.5.4
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.2
+  equatable: ^2.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+
+flutter:
+
+
