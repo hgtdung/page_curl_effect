@@ -1,6 +1,6 @@
 # Cookbook
 
-All the snippets are from the [example project]
+All the snippets are from the [example project](https://github.com/hgtdung/page_curl_effect/tree/main/example).
 
 ## Simple Usage
 ```dart
