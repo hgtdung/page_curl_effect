@@ -122,15 +122,11 @@ class PageCurlController extends ChangeNotifier {
 
     isEdgeDragging = true;
 
-    if (startPoint != null &&
-            startPoint!.x < PCConstants.turnPageBarrier &&
-            pageCurlIndex == 0 ||
-        (dragUpdateDetails.delta.dx >= 0 && pageCurlIndex == 0) ||
-        (dragUpdateDetails.delta.dx <= 0 &&
-            pageCurlIndex == (numberOfPage - 1)) ||
-        startPoint != null &&
-            startPoint!.x > PCConstants.turnPageBarrier &&
-            pageCurlIndex == (numberOfPage - 1)) {
+    if ((startPoint != null &&
+        startPoint!.x < paperSize.width - PCConstants.turnPageBarrier && dragUpdateDetails.delta.dx > 0 && pageCurlIndex == 0) ||
+        (startPoint != null &&
+            startPoint!.x > PCConstants.turnPageBarrier && dragUpdateDetails.delta.dx < 0 &&
+            pageCurlIndex == (numberOfPage - 1))) {
       startPoint = null;
       return;
     }
