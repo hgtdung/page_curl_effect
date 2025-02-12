@@ -137,7 +137,7 @@ class PageCurlPainter extends CustomPainter {
 
     /// Border
     var borderPaint = Paint()
-      ..color = Colors.grey.withOpacity(0.5)
+      ..color = Colors.grey.shade400
       ..strokeWidth = 1
       ..style = PaintingStyle.stroke;
 

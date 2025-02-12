@@ -1,0 +1,26 @@
+name: example
+description: "A showcase of the page_curl_effect package"
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.3 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  page_curl_effect:
+      path: ../
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+
+  uses-material-design: true

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:page_curl_effect/page_curl_effect.dart';
 
-class PageCurlEffectExample1 extends StatefulWidget {
-  const PageCurlEffectExample1({super.key});
+class ListPageWidgetScreen extends StatefulWidget {
+  const ListPageWidgetScreen({super.key});
   @override
-  State<PageCurlEffectExample1> createState() => _PageCurlEffectExample1State();
+  State<ListPageWidgetScreen> createState() => _ListPageWidgetScreenState();
 }
 
-class _PageCurlEffectExample1State extends State<PageCurlEffectExample1> {
+class _ListPageWidgetScreenState extends State<ListPageWidgetScreen> {
   late PageCurlController _pageCurlController;
   late Size _pageSize;
-  late final _listPage;
+  late final List<Widget> _listPage;
 
   @override
   void initState() {
@@ -28,7 +28,7 @@ class _PageCurlEffectExample1State extends State<PageCurlEffectExample1> {
 
     _pageCurlController = PageCurlController(
         Size(_pageSize.width, _pageSize.height),
-        pageCurlIndex: 1,
+        pageCurlIndex: 0,
         numberOfPage: _listPage.length);
 
     super.didChangeDependencies();
@@ -55,13 +55,16 @@ class _PageCurlEffectExample1State extends State<PageCurlEffectExample1> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: PageCurlEffect(
-        pageCurlController: _pageCurlController,
-        pages: _listPage,
-        onForwardComplete: () { },
-        onBackwardComplete: () { },
-        // pages: buildPages(),
+    return Scaffold(
+      appBar: AppBar(title: const Text("List page"),),
+      body: SafeArea(
+        child: PageCurlEffect(
+          pageCurlController: _pageCurlController,
+          pages: _listPage,
+          onForwardComplete: () { },
+          onBackwardComplete: () { },
+          // pages: buildPages(),
+        ),
       ),
     );
   }

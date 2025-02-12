@@ -6,15 +6,14 @@ import 'package:page_curl_effect/src/widget/page_curl_clipper.dart';
 import 'package:page_curl_effect/src/widget/page_curl_painter.dart';
 import 'package:provider/provider.dart';
 
-
 class PageCurlEffect extends StatefulWidget {
   const PageCurlEffect(
       {super.key,
-        required this.pageCurlController,
-        this.pages,
-        this.pageBuilder,
-        this.onForwardComplete,
-        this.onBackwardComplete});
+      required this.pageCurlController,
+      this.pages,
+      this.pageBuilder,
+      this.onForwardComplete,
+      this.onBackwardComplete});
 
   /// The controller control page curl effect
   final PageCurlController pageCurlController;
@@ -44,9 +43,9 @@ class _PageCurlEffectState extends State<PageCurlEffect>
   @override
   void initState() {
     assert(
-    (widget.pages != null && widget.pageBuilder == null ||
-        widget.pages == null && widget.pageBuilder != null),
-    "[Only set one of [pages] or [pageBuilder]");
+        (widget.pages != null && widget.pageBuilder == null ||
+            widget.pages == null && widget.pageBuilder != null),
+        "[Only set one of [pages] or [pageBuilder]");
 
     _animationController = AnimationController(
         duration: const Duration(milliseconds: 250), vsync: this);
@@ -76,8 +75,8 @@ class _PageCurlEffectState extends State<PageCurlEffect>
                 pageCurlCtrl.startPoint!.x > PCConstants.turnPageBarrier &&
                 !pageCurlCtrl.isLastPage()) {
               var forwardAnimation = Tween(
-                  begin: pageCurlCtrl.touchPoint!.x,
-                  end: -(MediaQuery.of(context).size.width))
+                      begin: pageCurlCtrl.touchPoint!.x,
+                      end: -(MediaQuery.of(context).size.width))
                   .animate(_animationController);
 
               /// Keep turning the page from the touch point to the end
@@ -107,8 +106,8 @@ class _PageCurlEffectState extends State<PageCurlEffect>
                 pageCurlCtrl.startPoint!.x <= PCConstants.turnPageBarrier &&
                 !pageCurlCtrl.isFirstPage()) {
               var backwardAnimation = Tween(
-                  begin: pageCurlCtrl.touchPoint!.x,
-                  end: (MediaQuery.of(context).size.width))
+                      begin: pageCurlCtrl.touchPoint!.x,
+                      end: (MediaQuery.of(context).size.width))
                   .animate(_animationController);
 
               /// /// Keep turning the page from the touch point to the end
@@ -151,8 +150,7 @@ class _PageCurlEffectState extends State<PageCurlEffect>
                     widget.pages![nextPageIndex],
                   if (widget.pages != null &&
                       pageCurlCtlr.startPoint != null &&
-                      pageCurlCtlr.startPoint!.x <
-                          PCConstants.turnPageBarrier)
+                      pageCurlCtlr.startPoint!.x < PCConstants.turnPageBarrier)
                     widget.pages![currentPageIndex],
 
                   /// Using page builder
@@ -160,8 +158,7 @@ class _PageCurlEffectState extends State<PageCurlEffect>
                     widget.pageBuilder!(context, nextPageIndex),
                   if (widget.pageBuilder != null &&
                       pageCurlCtlr.startPoint != null &&
-                      pageCurlCtlr.startPoint!.x <
-                          PCConstants.turnPageBarrier)
+                      pageCurlCtlr.startPoint!.x < PCConstants.turnPageBarrier)
                     widget.pageBuilder!(context, currentPageIndex),
                   AnimatedBuilder(
                       animation: _animationController,
@@ -175,9 +172,9 @@ class _PageCurlEffectState extends State<PageCurlEffect>
                           clipper: PageCurlClipper(
                               nullableCylinder: pageCurlCtlr.cylinder,
                               nullableHorizontalPageCurve:
-                              pageCurlCtlr.horizontalPageCurve,
+                                  pageCurlCtlr.horizontalPageCurve,
                               nullableMiddlePageCurve:
-                              pageCurlCtlr.middlePageCurve),
+                                  pageCurlCtlr.middlePageCurve),
                           child: SizedBox(
                             height: pageCurlCtlr.paperSize.height,
                             width: pageCurlCtlr.paperSize.width,
@@ -212,9 +209,9 @@ class _PageCurlEffectState extends State<PageCurlEffect>
                                     painter: PageCurlPainter(
                                         nullableCylinder: pageCurlCtlr.cylinder,
                                         nullableHorizontalPageCurve:
-                                        pageCurlCtlr.horizontalPageCurve,
+                                            pageCurlCtlr.horizontalPageCurve,
                                         nullableMiddlePageCurve:
-                                        pageCurlCtlr.middlePageCurve),
+                                            pageCurlCtlr.middlePageCurve),
                                     child: SizedBox.expand(),
                                   ),
                               ],
