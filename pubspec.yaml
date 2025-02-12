@@ -6,7 +6,7 @@ repository: https://github.com/hgtdung/page_curl_effect
 View/report issues: https://github.com/hgtdung/page_curl_effect/issues
 
 environment:
-  sdk: ^3.5.4
+  sdk: ">=3.3.3 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
