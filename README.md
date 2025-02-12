@@ -1,7 +1,7 @@
 # Page Curl Effect
 Package simulate 3D page curl effect by 2D effect.
 
-![ezgif.com-optimize.gif](..%2F..%2F..%2FDesktop%2Fezgif.com-optimize.gif)
+![page_curl_gift](https://github.com/user-attachments/assets/c52113f2-9089-4bf6-a9f7-0e7008f2bfcd)
 
 ## Usage
 ### Case 1: Binding list of widget
@@ -127,4 +127,3 @@ class _PageCurlEffectExampleState extends State<PageCurlEffectExample> {
   }
 }
 ```
- 
