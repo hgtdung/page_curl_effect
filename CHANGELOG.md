@@ -7,3 +7,7 @@
 - Example
 ### Fixed
 - Code format, deprecated issue
+
+## 1.0.2 - 2025-02-13
+## Fixed
+- Code format
