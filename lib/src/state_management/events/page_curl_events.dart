@@ -21,17 +21,15 @@ class CurlNormalEvent extends PageCurlEvent {
 class CurlEdgeEvent extends PageCurlEvent {
   final double leftLimitationAngle;
   final FPoint newPivot;
-  CurlEdgeEvent({required this.leftLimitationAngle,required this.newPivot});
+  CurlEdgeEvent({required this.leftLimitationAngle, required this.newPivot});
 
   @override
   List<Object?> get props => [];
 
-  copyWith(
-      {double? leftLimitationAngle, FPoint? newPivot}) {
+  copyWith({double? leftLimitationAngle, FPoint? newPivot}) {
     return CurlEdgeEvent(
         leftLimitationAngle: leftLimitationAngle ?? this.leftLimitationAngle,
-        newPivot: newPivot?? this.newPivot
-    );
+        newPivot: newPivot ?? this.newPivot);
   }
 }
 

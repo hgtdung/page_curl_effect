@@ -1,4 +1,3 @@
-
 class PCConstants {
   /// The maximum angle that the page can twist
   static const double maximumAngle = 60;

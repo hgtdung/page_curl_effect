@@ -44,10 +44,13 @@ class PCMath {
     return OPoint(x, 0);
   }
 
-  static OPoint? findIntersectionWithVerticalLine(OPoint p1, OPoint p2, double V) {
+  static OPoint? findIntersectionWithVerticalLine(
+      OPoint p1, OPoint p2, double V) {
     /// Check if the line is vertical (parallel to the y-axis)
     if (p1.x == p2.x) {
-      return null; /// No intersection with vertical line, because the line is vertical
+      return null;
+
+      /// No intersection with vertical line, because the line is vertical
     }
 
     /// Calculate the slope (m) of the line
@@ -63,7 +66,8 @@ class PCMath {
     return OPoint(V, y);
   }
 
-  static OPoint? findIntersectionWithHorizontalLine(OPoint p1, OPoint p2, double M) {
+  static OPoint? findIntersectionWithHorizontalLine(
+      OPoint p1, OPoint p2, double M) {
     /// Check if the line is vertical (parallel to the y-axis)
     if (p1.x == p2.x) {
       return OPoint(p1.x, M);
@@ -104,17 +108,22 @@ class PCMath {
     return OPoint(xSymmetric, ySymmetric);
   }
 
-
-  static OPoint? twoLineIntersection(OPoint p1, OPoint p2, OPoint p3, OPoint p4) {
-    double denominator = (p1.x - p2.x) * (p3.y - p4.y) - (p1.y - p2.y) * (p3.x - p4.x);
+  static OPoint? twoLineIntersection(
+      OPoint p1, OPoint p2, OPoint p3, OPoint p4) {
+    double denominator =
+        (p1.x - p2.x) * (p3.y - p4.y) - (p1.y - p2.y) * (p3.x - p4.x);
 
     /// If denominator is zero, the lines are parallel or coincident
     if (denominator == 0) {
-      return null; /// No intersection
+      return null;
+
+      /// No intersection
     }
 
-    double t = ((p1.x - p3.x) * (p3.y - p4.y) - (p1.y - p3.y) * (p3.x - p4.x)) / denominator;
-    double u = ((p1.x - p3.x) * (p1.y - p2.y) - (p1.y - p3.y) * (p1.x - p2.x)) / denominator;
+    double t = ((p1.x - p3.x) * (p3.y - p4.y) - (p1.y - p3.y) * (p3.x - p4.x)) /
+        denominator;
+    double u = ((p1.x - p3.x) * (p1.y - p2.y) - (p1.y - p3.y) * (p1.x - p2.x)) /
+        denominator;
 
     /// If 0 <= t <= 1 and 0 <= u <= 1, the intersection point is on both line segments
     if (t >= 0 && t <= 1 && u >= 0 && u <= 1) {
@@ -123,10 +132,13 @@ class PCMath {
       return OPoint(x, y);
     }
 
-    return null; /// The intersection is outside the line segments
+    return null;
+
+    /// The intersection is outside the line segments
   }
 
-  static OPoint? findPointOnPerpendicularBisector(OPoint a, OPoint b, double distance, bool below) {
+  static OPoint? findPointOnPerpendicularBisector(
+      OPoint a, OPoint b, double distance, bool below) {
     /// Calculate the midpoint M of AB
     double midX = (a.x + b.x) / 2;
     double midY = (a.y + b.y) / 2;
@@ -148,8 +160,10 @@ class PCMath {
     double unitPerpY = perpY / perpLength;
 
     /// Calculate two points on the perpendicular bisector at a distance of `distance` from M
-    OPoint p1 = OPoint(midPoint.x + unitPerpX * distance, midPoint.y + unitPerpY * distance);
-    OPoint p2 = OPoint(midPoint.x - unitPerpX * distance, midPoint.y - unitPerpY * distance);
+    OPoint p1 = OPoint(
+        midPoint.x + unitPerpX * distance, midPoint.y + unitPerpY * distance);
+    OPoint p2 = OPoint(
+        midPoint.x - unitPerpX * distance, midPoint.y - unitPerpY * distance);
 
     /// Only return the point below the line AB (y < midY)
     if (below) {
@@ -160,12 +174,15 @@ class PCMath {
   }
 
   static FPoint calculateControlPoint(FPoint a, FPoint b, FPoint c, double tc) {
-    double x1 = (c.x - (1 - tc) * (1 - tc) * a.x - tc * tc * b.x) / (2 * tc * (1 - tc));
-    double y1 = (c.y - (1 - tc) * (1 - tc) * a.y - tc * tc * b.y) / (2 * tc * (1 - tc));
+    double x1 =
+        (c.x - (1 - tc) * (1 - tc) * a.x - tc * tc * b.x) / (2 * tc * (1 - tc));
+    double y1 =
+        (c.y - (1 - tc) * (1 - tc) * a.y - tc * tc * b.y) / (2 * tc * (1 - tc));
     return FPoint(x1, y1);
   }
 
-  static FPoint getPointOnQuadraticCurve(double t, FPoint start, FPoint control, FPoint end) {
+  static FPoint getPointOnQuadraticCurve(
+      double t, FPoint start, FPoint control, FPoint end) {
     double x = (1 - t) * (1 - t) * start.x +
         2 * (1 - t) * t * control.x +
         t * t * end.x;
@@ -178,7 +195,8 @@ class PCMath {
   }
 
   /// Function to calculate the point on the conic curve for parameter t
-  static FPoint getPointOnConicCurve(double t, FPoint start, FPoint control, FPoint end, double weight) {
+  static FPoint getPointOnConicCurve(
+      double t, FPoint start, FPoint control, FPoint end, double weight) {
     double numeratorX = (1 - t) * (1 - t) * start.x +
         2 * (1 - t) * t * control.x * weight +
         t * t * end.x;
@@ -195,8 +213,8 @@ class PCMath {
     return FPoint(x, y);
   }
 
-
-  static double? findTAtConicCrossLine(FPoint start, FPoint control, FPoint end, double conicWeight, FPoint lineStart, FPoint lineEnd) {
+  static double? findTAtConicCrossLine(FPoint start, FPoint control, FPoint end,
+      double conicWeight, FPoint lineStart, FPoint lineEnd) {
     bool wasCrossing = false;
     for (double t = 0; t <= 1; t += 0.01) {
       FPoint point = getPointOnConicCurve(t, start, control, end, conicWeight);
@@ -207,8 +225,8 @@ class PCMath {
     return null;
   }
 
-
-  static bool isCrossingLine(double x, double y, FPoint lineStart, FPoint lineEnd, bool wasCrossing) {
+  static bool isCrossingLine(
+      double x, double y, FPoint lineStart, FPoint lineEnd, bool wasCrossing) {
     /// Cross product to determine the side of the line the point lies on
     double crossProduct = (lineEnd.x - lineStart.x) * (y - lineStart.y) -
         (lineEnd.y - lineStart.y) * (x - lineStart.x);
@@ -229,7 +247,9 @@ class PCMath {
   }) {
     return newMin + (value - oldMin) / (oldMax - oldMin) * (newMax - newMin);
   }
-  static double mapValue(double value, double fromLow, double fromHigh, double toLow, double toHigh) {
+
+  static double mapValue(double value, double fromLow, double fromHigh,
+      double toLow, double toHigh) {
     return toLow + (value - fromLow) * (toHigh - toLow) / (fromHigh - fromLow);
   }
 }

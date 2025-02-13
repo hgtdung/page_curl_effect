@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 import 'package:page_curl_effect/src/model/coordinates/o_point.dart';
@@ -13,4 +12,3 @@ class FPoint extends Point<double> {
     return OPoint(x, -y);
   }
 }
-

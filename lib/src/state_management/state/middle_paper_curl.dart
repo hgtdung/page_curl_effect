@@ -17,11 +17,10 @@ class MiddlePageCurve {
   /// T [0,1] Using to draw part of curve
   double endT;
 
-  MiddlePageCurve({
-    required this.startPoint,
-    required this.controlPoint,
-    required this.endPoint,
-    required this.weight,
-    required this.endT
-  });
+  MiddlePageCurve(
+      {required this.startPoint,
+      required this.controlPoint,
+      required this.endPoint,
+      required this.weight,
+      required this.endT});
 }

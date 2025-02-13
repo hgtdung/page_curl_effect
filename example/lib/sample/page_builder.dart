@@ -23,11 +23,12 @@ class _PageBuilderScreenState extends State<PageBuilderScreen> {
       600,
     );
 
-    _pageCurlController = PageCurlController(
-        Size(_pageSize.width, _pageSize.height),
-        pageCurlIndex: 1,
-        /// A number of pages
-        numberOfPage: 5);
+    _pageCurlController =
+        PageCurlController(Size(_pageSize.width, _pageSize.height),
+            pageCurlIndex: 1,
+
+            /// A number of pages
+            numberOfPage: 5);
 
     super.didChangeDependencies();
   }
@@ -35,12 +36,14 @@ class _PageBuilderScreenState extends State<PageBuilderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Page builder"),),
+      appBar: AppBar(
+        title: const Text("Page builder"),
+      ),
       body: SafeArea(
         child: PageCurlEffect(
           pageCurlController: _pageCurlController,
           pageBuilder: (context, index) {
-            return  Container(
+            return Container(
               alignment: Alignment.center,
               color: const Color(0xffF5DEB3),
               width: _pageSize.width,
@@ -48,8 +51,8 @@ class _PageBuilderScreenState extends State<PageBuilderScreen> {
               child: Text("Page $index"),
             );
           },
-          onForwardComplete: () { },
-          onBackwardComplete: () { },
+          onForwardComplete: () {},
+          onBackwardComplete: () {},
           // pages: buildPages(),
         ),
       ),

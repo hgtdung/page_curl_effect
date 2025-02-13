@@ -35,13 +35,13 @@ class _HomeScreenState extends State<HomeScreen> {
         items: bottomNavigationItems
             .map(
               (item) => BottomNavigationBarItem(
-            icon: Icon(item.iconData),
-            label: item.label,
-          ),
-        )
+                icon: Icon(item.iconData),
+                label: item.label,
+              ),
+            )
             .toList(),
         onTap: (newIndex) => setState(
-              () => _selectedBottomNavigationIndex = newIndex,
+          () => _selectedBottomNavigationIndex = newIndex,
         ),
       ),
       body: ScaffoldMessenger(

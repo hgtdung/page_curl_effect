@@ -6,7 +6,6 @@ import 'package:page_curl_effect/src/page_curl_math/page_curl_math.dart';
 import 'package:page_curl_effect/src/state_management/state/horizontal_page_curl.dart';
 import 'package:page_curl_effect/src/state_management/state/middle_paper_curl.dart';
 
-
 /// Paint the page curl effect by two curves
 class PageCurlPainter extends CustomPainter {
   Cylinder? nullableCylinder;
@@ -156,7 +155,8 @@ class PageCurlPainter extends CustomPainter {
       var middlePageCurve = nullablemiddlePageCurve!;
       var conicWeight = middlePageCurve.weight;
       var conicT = middlePageCurve.endT;
-      path.moveTo(horizontalPageCurve.endPoint.x, horizontalPageCurve.endPoint.y);
+      path.moveTo(
+          horizontalPageCurve.endPoint.x, horizontalPageCurve.endPoint.y);
 
       /// Draw conic curve
       if ((middlePageCurve.endPoint.x <= cylinder.topRight.x &&
@@ -225,7 +225,8 @@ class PageCurlPainter extends CustomPainter {
             horizontalPageCurve.endPoint);
         path.lineTo(point.x, point.y);
       }
-      path.lineTo(horizontalPageCurve.endPoint.x, horizontalPageCurve.endPoint.y);
+      path.lineTo(
+          horizontalPageCurve.endPoint.x, horizontalPageCurve.endPoint.y);
       canvas.drawPath(path, paint);
       canvas.drawPath(path, borderPaint);
     }

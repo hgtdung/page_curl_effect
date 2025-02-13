@@ -95,10 +95,10 @@ class PageCurlClipper extends CustomClipper<Path> {
         } else {
           t = middlePageCurve.endT;
         }
-        cylinder.angle > 0 ?
-        path.lineTo(cylinder.topRight.x, cylinder.topRight.y):
-        path.lineTo(cylinder.bottomRight.x, cylinder.bottomRight.y);
-      }  else {
+        cylinder.angle > 0
+            ? path.lineTo(cylinder.topRight.x, cylinder.topRight.y)
+            : path.lineTo(cylinder.bottomRight.x, cylinder.bottomRight.y);
+      } else {
         /// draw from fold point to conic inflection point
         FPoint conicInflectionPoint = PCMath.getPointOnConicCurve(
             middlePageCurve.endT,

@@ -10,7 +10,6 @@ import 'package:page_curl_effect/src/state_management/state/middle_paper_curl.da
 import 'package:page_curl_effect/src/state_management/state/page_curl_state.dart';
 import 'dart:math';
 
-
 class PageCurlController extends ChangeNotifier {
   /// The left limitation when turn the page
   final double pageLeftLimitation = 50;
@@ -55,10 +54,13 @@ class PageCurlController extends ChangeNotifier {
   /// Middle curl will be draw by Conic Bezier Curve, find Conic Bezier weight and T
   /// The x-coordinate where The t in Bezier calculation starts falling
   double? conicTStartFallingAnglePoint;
+
   /// The Angle where The t in Bezier starts rising
   double? conicTStartRisingAngle;
+
   /// The T using for drawing part of Bezier Curve
   double? conicT;
+
   /// The Conic weight for Conic Bezier curve
   double? conicWeight;
 
@@ -100,8 +102,9 @@ class PageCurlController extends ChangeNotifier {
   }
 
   bool isTouchFromTheEdge(Offset position, Offset delta, FPoint startPoint) {
-    if (delta.dx > 0 && startPoint.x <  PCConstants.turnPageBarrier ||
-        delta.dx < 0 && startPoint.x > paperSize.width -  PCConstants.turnPageBarrier) {
+    if (delta.dx > 0 && startPoint.x < PCConstants.turnPageBarrier ||
+        delta.dx < 0 &&
+            startPoint.x > paperSize.width - PCConstants.turnPageBarrier) {
       return true;
     }
     return false;
@@ -123,9 +126,12 @@ class PageCurlController extends ChangeNotifier {
     isEdgeDragging = true;
 
     if ((startPoint != null &&
-        startPoint!.x < paperSize.width - PCConstants.turnPageBarrier && dragUpdateDetails.delta.dx > 0 && pageCurlIndex == 0) ||
+            startPoint!.x < paperSize.width - PCConstants.turnPageBarrier &&
+            dragUpdateDetails.delta.dx > 0 &&
+            pageCurlIndex == 0) ||
         (startPoint != null &&
-            startPoint!.x > PCConstants.turnPageBarrier && dragUpdateDetails.delta.dx < 0 &&
+            startPoint!.x > PCConstants.turnPageBarrier &&
+            dragUpdateDetails.delta.dx < 0 &&
             pageCurlIndex == (numberOfPage - 1))) {
       startPoint = null;
       return;

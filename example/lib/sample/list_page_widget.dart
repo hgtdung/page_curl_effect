@@ -56,13 +56,15 @@ class _ListPageWidgetScreenState extends State<ListPageWidgetScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("List page"),),
+      appBar: AppBar(
+        title: const Text("List page"),
+      ),
       body: SafeArea(
         child: PageCurlEffect(
           pageCurlController: _pageCurlController,
           pages: _listPage,
-          onForwardComplete: () { },
-          onBackwardComplete: () { },
+          onForwardComplete: () {},
+          onBackwardComplete: () {},
           // pages: buildPages(),
         ),
       ),
